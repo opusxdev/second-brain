@@ -1,8 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import router from "./routes/pageRoutes.js";
-import dbConnect from "./config/db.js";
+
+import router from "./src/routes/pageRoutes.js";
+import dbConnect from "./src/config/db.js";
 import cookieParser from "cookie-parser";
 
 dotenv.config();
@@ -14,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 
 const allowedOrigins = [
   "http://localhost:5173",
-  //todo - add frontend url here.
+  "http://localhost:5174",
 ];
 
 app.use(
@@ -39,3 +40,5 @@ app.use("/api/v1", router);
 app.listen(process.env.PORT, () => {
   console.log("Server is running");
 });
+
+
